@@ -1,0 +1,16 @@
+<h5 class="text-center">{{ header }}</h5>
+<div class="container p-5">
+  <ng-container *ngIf="listData?.length">
+    <div
+      class="card border mb-2"
+      [ngStyle]="{ 'background-color': bgColor, color: textColor }"
+      *ngFor="let story of listData"
+    >
+      <p>Story Name : {{ story.storyName }}</p>
+      <p>Story Points : {{ story.storyPoint }}</p>
+    </div>
+  </ng-container>
+  <div class="card border mb-2 bg-light" *ngIf="!listData?.length">
+    <p>No Data Found!!</p>
+  </div>
+</div>

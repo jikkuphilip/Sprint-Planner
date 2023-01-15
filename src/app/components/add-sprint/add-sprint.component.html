@@ -1,0 +1,36 @@
+<h5 class="text-center">Sprint Calculator</h5>
+<div class="container p-5" [formGroup]="sprintForm">
+  <input
+    class="form-control mb-2"
+    type="number"
+    formControlName="sprintPoint"
+    placeholder="Sprint Point"
+  />
+  <span
+    class="text-danger"
+    *ngIf="(sprintPoint.touched || submitted) && sprintPoint.errors?.required"
+  >
+    Sprint Point is required
+  </span>
+  <button
+    type="button"
+    class="w-100 mb-5 text-center btn btn-dark"
+    (click)="autoSelectStories()"
+  >
+    AUTO SELECT STORIES
+  </button>
+  <button
+    type="button"
+    class="w-100 mb-2 text-center btn btn-dark"
+    (click)="clearStories('all')"
+  >
+    CLEAR STORIES
+  </button>
+  <button
+    type="button"
+    class="w-100 text-center btn btn-dark"
+    (click)="clearStories('selected')"
+  >
+    CLEAR SELECTED STORIES
+  </button>
+</div>

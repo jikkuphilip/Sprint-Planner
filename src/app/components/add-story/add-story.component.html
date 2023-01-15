@@ -1,0 +1,38 @@
+<h5 class="text-center">Add Story</h5>
+<div class="container p-5" [formGroup]="storyForm">
+  <input
+    class="form-control mb-2"
+    type="text"
+    formControlName="storyName"
+    placeholder="Story Name"
+    (ngModelChange)="checkStoryName()"
+  />
+  <span
+    class="text-danger"
+    *ngIf="(storyName.touched || submitted) && storyName.errors?.required"
+  >
+    Story Name is required
+  </span>
+  <span class="text-danger" *ngIf="hasDuplication">
+    Story Name Already Exists
+  </span>
+  <input
+    class="form-control mb-2"
+    type="number"
+    formControlName="storyPoint"
+    placeholder="Story Point"
+  />
+  <span
+    class="text-danger"
+    *ngIf="(storyPoint.touched || submitted) && storyPoint.errors?.required"
+  >
+    Story Point is required
+  </span>
+  <button
+    type="button"
+    class="w-100 text-center btn btn-dark"
+    (click)="addStory()"
+  >
+    ADD STORY
+  </button>
+</div>
